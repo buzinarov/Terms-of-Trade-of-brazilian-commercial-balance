@@ -1,0 +1,42 @@
+OPEN DATA "C:\Users\pedro\Desktop\Curva J\Data.xls"
+CALENDAR 2000 1 12
+ALL 2013:11
+DATA(FORMAT=XLS,ORG=COLUMNS) 2000:01 2013:11 BCB BCS BCM CAMR CAM TT PIB USA CHINA EU MUNDO
+Log BCB / LBCB
+Log BCS / LBCS
+Log BCM / LBCM
+Log CAMR / LCAMR
+Log CAM / LCAM
+Log TT / LTT
+Log PIB / LPIB
+Log USA / LUSA
+Log CHINA / LCHINA
+Log EU / LEU
+Log MUNDO / LMUNDO
+Diff LBCB / DBCB
+Diff LTT / DTT
+DIff LPIB / DPIB
+Diff LMUNDO / DMUNDO
+set trend = t
+system(model=chap2) 1 to 4
+set r1 = 1.00*LBCB(t-1)-2.064*LTT(t-1)-0.733*LPIB(t-1)-0.084*LMUNDO(t-1)+9.654
+lags 1 to 1
+variables DBCB DTT DPIB DMUNDO 
+det constant r1
+end(system)
+estimate(outsigma=V,noprint)
+declare rect pattern(4,4)  
+nonlin b c d
+DEC FRML[RECT] AFRML
+FRML AFRML = ||	1,-b,-c,-d|$
+                0,1,0,0|$
+                0,0,1,0|$
+                0,0,0,1||
+COMPUTE  b=c=d=0.0
+CVMODEL(ITERS=100,METHOD=BFGS,TRACE,FACTOR=AFACTOR) %SIGMA AFRML
+errors(impulse, MODEL=CHAP2, DEC=AFACTOR) *12
+compute hstart=2000:02
+compute hend=2013:10
+history(model=chap2,add,results=history,window='saida') *hend-hstart+1 hstart %sigma
+
+

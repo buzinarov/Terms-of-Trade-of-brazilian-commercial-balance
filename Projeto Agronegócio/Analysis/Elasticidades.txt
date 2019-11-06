@@ -1,0 +1,63 @@
+BÁSICOS
+
+BETA(transposed)
+        LBCB    LTT      LPIB    LMUNDO  CONSTANT
+Beta(1) 1.000  -2.064   -0.733   -0.084    9.654
+        (.NA) (-5.903) (-4.737) (-0.697)  (8.402)
+
+ALPHA
+       Alpha(1)
+DLBCB   -0.575
+       (-8.010)
+DLTT     0.026
+        (3.749)
+DLPIB    0.013
+        (0.914)
+DLMUND   0.017
+        (2.021)
+
+
+
+
+
+
+SEMIMANUFATURADOS
+
+BETA(transposed)
+        LBCS    LTT     LPIB   LMUNDO  CONSTANT
+Beta(1) 1.000  0.048   -0.667   0.268   -2.972
+        (.NA) (0.180) (-5.706) (2.925) (-3.421)
+
+ALPHA
+       Alpha(1)
+DLBCS   -0.519
+       (-8.117)
+DLTT     0.017
+        (1.764)
+DLPIB   -0.021
+       (-1.086)
+DLMUND   0.024
+        (2.091)
+
+
+
+
+
+
+MANUFATURADOS
+
+BETA(transposed)
+        LBCM    LTT      LPIB    LMUNDO  CONSTANT
+Beta(1) 1.000   3.583   -0.229   -0.519   -12.816
+        (.NA) (10.919) (-1.581) (-4.566) (-11.886)
+
+ALPHA
+       Alpha(1)
+DLBCM   -0.313
+       (-5.734)
+DLTT    -0.024
+       (-2.458)
+DLPIB   -0.031
+       (-1.634)
+DLMUND   0.037
+        (3.256)
